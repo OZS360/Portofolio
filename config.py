@@ -11,6 +11,6 @@ class Config:
     MAIL_PORT = 587  # ポート番号
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
-    MAIL_USERNAME = 'b.o.w.under@gmail.com'  # 自分のメールアドレス
-    MAIL_PASSWORD = 'zunfmmqneqvkgkol'  # アプリパスワード（Gmailの場合）
-    MAIL_DEFAULT_SENDER = ('Flask Contact', 'b.o.w.under@gmail.com')  # 送信者名
+    MAIL_USERNAME = 'MAIL_USERNAME'  # 自分のメールアドレス
+    MAIL_PASSWORD = 'MAIL_PASSWORD'  # アプリパスワード（Gmailの場合）
+    MAIL_DEFAULT_SENDER = ('Flask Contact', 'MAIL_USERNAME')  # 送信者名
