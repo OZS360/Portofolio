@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}ロト6予想{% endblock %}
+
+{% block extra_style %}
+<style>
+.lotto6-page table {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.lotto6-page th {
+    background-color: var(--table-header);
+}
+.lotto6-page .btn {
+    background-color: var(--accent);
+    color: white;
+}
+.lotto6-page .candidates {
+    text-align: center;
+    font-size: 1.2rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="lotto6-page">
+
+    <h2 class="text-center mb-4">ロト6 直近10回の当選結果</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>回号</th>
+                    <th>抽せん日</th>
+                    <th colspan="6">本数字</th>
+                    <th>ボーナス</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in latest_draws %}
+                <tr>
+                    <td>{{ row.回号 }}</td>
+                    <td>{{ row.抽せん日 }}</td>
+                    <td>{{ row.本数字1 }}</td>
+                    <td>{{ row.本数字2 }}</td>
+                    <td>{{ row.本数字3 }}</td>
+                    <td>{{ row.本数字4 }}</td>
+                    <td>{{ row.本数字5 }}</td>
+                    <td>{{ row.本数字6 }}</td>
+                    <td>{{ row.ボーナス }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <form method="POST" class="text-center my-4">
+        <button type="submit" class="btn btn-lg">🎯 予想する（5セット）</button>
+    </form>
+
+    {% if generated %}
+    <h3 class="text-center">✨ 予想候補（参考用）</h3>
+    <div class="candidates mt-3">
+        {% for line in generated %}
+            <p>{{ line | join(', ') }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

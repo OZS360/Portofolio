@@ -1,0 +1,53 @@
+<!-- templates/check.html -->
+{% extends "base.html" %}
+
+{% block title %}令和7年 標準報酬月額チェック{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="text-center mb-4 text-primary">令和7年 標準報酬月額チェック</h1>
+
+  <div class="card shadow-lg rounded-4 p-4 bg-light-subtle border-0">
+    <form>
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label for="prevSalary" class="form-label fw-semibold">比べる対象の総支給（円）</label>
+          <input type="number" class="form-control form-control-lg" id="prevSalary" placeholder="例: 95000">
+          <div id="prevGrade" class="form-text mt-1 text-info"></div>
+        </div>
+        <div class="col-md-6">
+          <label for="avgSalary" class="form-label fw-semibold">平均支給額（円）</label>
+          <input type="text" class="form-control form-control-lg" id="avgSalary" readonly>
+          <div id="avgGrade" class="form-text mt-1 text-info"></div>
+        </div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-md-4">
+          <label for="month1" class="form-label">1か月目支給額（円）</label>
+          <input type="number" class="form-control" id="month1" placeholder="例: 94000">
+        </div>
+        <div class="col-md-4">
+          <label for="month2" class="form-label">2か月目支給額（円）</label>
+          <input type="number" class="form-control" id="month2" placeholder="例: 96000">
+        </div>
+        <div class="col-md-4">
+          <label for="month3" class="form-label">3か月目支給額（円）</label>
+          <input type="number" class="form-control" id="month3" placeholder="例: 93000">
+        </div>
+      </div>
+    </form>
+
+    <div id="warning" class="alert alert-danger d-none mt-3 fw-semibold shadow-sm" role="alert">
+      ⚠️ 平均と前の等級に2等級以上の差があります！
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h2 class="text-center mb-4">標準報酬月額表（カードレイアウト）</h2>
+    <div class="row g-4">
+      {# 🔽 テーブルカードのHTMLをここに入れる。元の内容をそのまま移植でOK！ #}
+      {% include "partials/grade_cards.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}

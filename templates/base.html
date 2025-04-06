@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <title>{% block title %}OZSProfile{% endblock %}</title>
+</head>
+<body>
+
+    <!-- 🌙 トグルボタンをここに置けば全ページ共通表示 -->
+    <button class="btn btn-sm btn-outline-primary btn-toggle" style="position: fixed; top: 1rem; right: 1rem; z-index: 999;">
+        🌙 ダークモード
+      </button>
+
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">OZSProfile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">ナンバーズ3</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index2') }}">ナンバーズ4</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index3') }}">ロト6予想</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('syaroushi_list') }}">社労士事務所一覧</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('form') }}">公文書作成</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('check_view') }}">月額報酬チェック</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツブロック（ここだけ） -->
+    <div class="container py-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    {% block extra_style %}{% endblock %}
+    
+
+    <!-- フッター -->
+    <footer>
+        <p class="text-center my-4">&copy; 2025 社労士事務所一覧. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

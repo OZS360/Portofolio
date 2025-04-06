@@ -1,0 +1,79 @@
+{# templates/form.html #}
+{% extends "base.html" %}
+
+{% block title %}
+標準報酬月額決定通知書 発行フォーム
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h2 class="mb-4 text-center text-primary">標準報酬月額決定通知書 発行フォーム</h2>
+
+      <form action="/generate" method="post" class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">宛名</label>
+          <input type="text" class="form-control" name="宛名" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">発行日</label>
+          <input type="date" class="form-control" name="発行日" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">整理番号</label>
+          <input type="text" class="form-control" name="整理番号" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">氏名</label>
+          <input type="text" class="form-control" name="氏名" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">生年月日</label>
+          <input type="date" class="form-control" name="生年月日" required>
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label">性別</label>
+          <select name="性別" class="form-select" required>
+            <option value="">選択してください</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="col-md-5">
+          <label class="form-label">資格取得年月日</label>
+          <input type="date" class="form-control" name="資格取得年月日" required>
+        </div>
+
+        <div class="col-md-5">
+          <label class="form-label">決定年月日</label>
+          <input type="date" class="form-control" name="決定年月日" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">決定等級</label>
+          <input type="number" class="form-control" name="決定等級" required>
+        </div>
+
+        <div class="col-md-5">
+          <label class="form-label">標準報酬月額</label>
+          <input type="number" class="form-control" name="標準報酬月額" required>
+        </div>
+
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-primary px-4">📄 PDF出力</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

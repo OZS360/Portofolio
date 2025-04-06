@@ -1,0 +1,106 @@
+/* ベースのスタイル */
+:root {
+    --bg-color: #f4f7fb;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --table-header: #e9f2ff;
+    --accent: #0d6efd;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1e1e2a;
+    --text-color: #e6e6e6;
+    --table-header: #37425a;
+    --accent: #66b2ff;
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+     /* ✅ これが抜けてた！ */
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}  
+
+/* ナビゲーションバー */
+.navbar {
+    background-color: #007bff !important;
+}
+
+
+/* コンテンツエリア */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+/* フッター */
+
+footer {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* numbers3.html専用のテーブルスタイル */
+table.numbers3-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.numbers3-table th, .numbers3-table td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+}
+
+.numbers3-table th {
+    background-color: #f2f2f2;
+}
+
+.lotto6-page table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.lotto6-page th, .lotto6-page td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.lotto6-page th {
+    background: var(--table-header);
+}
+
+.lotto6-page .candidates {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.lotto6-page .btn {
+    background: var(--accent);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+

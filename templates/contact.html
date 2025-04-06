@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}お問い合わせ{% endblock %}
+
+{% block content %}
+<h1 class="text-center">お問い合わせフォーム</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.text.label(class="form-label") }}
+        {{ form.text(class="form-control", rows=5) }}
+    </div>
+    <div class="text-center">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}

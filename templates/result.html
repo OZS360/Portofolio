@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}お問い合わせ完了{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>お問い合わせありがとうございます！</h1>
+    <p>{{ inquiry.name }} さん、メッセージを受け付けました。</p>
+    <p>送信日時: {{ inquiry.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <a href="{{ url_for('home') }}" class="btn btn-primary">ホームに戻る</a>
+</div>
+{% endblock %}

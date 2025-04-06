@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}社労士事務所一覧{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">社労士事務所一覧</h2>
+
+    <!-- 検索フォーム -->
+    <!-- <form method="GET" action="{{ url_for('syaroushi_list') }}" class="mb-4"> -->
+        <form method="GET" action="/search" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="query" class="form-control" placeholder="名前または事務所名を検索" value="{{ query }}">
+            <button type="submit" class="btn btn-primary">検索</button>
+            {% if query %}
+                <a href="{{ url_for('syaroushi_list') }}" class="btn btn-secondary">全表示</a>
+            {% endif %}
+        </div>
+    </form>
+
+    <!-- 検索結果 -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>事務所名</th>
+                <th>連絡先</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in data %}
+            <tr>
+                <td>{{ info.id }}</td>
+                <td>{{ info.name }}</td>
+                <td>{{ info.office }}</td>
+                <td>{{ info.address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

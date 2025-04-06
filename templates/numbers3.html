@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}ナンバーズ3 BOX履歴{% endblock %}
+
+{% block content %}
+    <table class="numbers3-table">
+        <tr>
+            <th>回号</th>
+            <th>抽せん日</th>
+            <th>当せん番号</th>
+            <th>BOX</th>
+            <th>直近BOX3回</th>
+        </tr>
+        {% for row in table %}
+        <tr>
+            <td>{{ row.回号 }}</td>
+            <td>{{ row.抽せん日.strftime('%Y/%m/%d') }}</td>
+            <td>{{ row.当せん番号 }}</td>
+            <td>{{ row.BOX }}</td>
+            <td>{{ row.直近BOX3回 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
